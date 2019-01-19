@@ -1,5 +1,10 @@
 from tkinter import *
+import subprocess
+import threading
 import os
+import platform
+import re
+
 
 #------------------------------------
 
@@ -11,22 +16,24 @@ def addBox():
 
     Label(frame, text='User').grid(row=0, column=0)
 
-    ent1 = Entry(frame)
-    ent1.grid(row=1, column=0)
+    usr1 = Entry(frame)
+    usr1.grid(row=1, column=0)
 
     Label(frame, text='Password').grid(row=0, column=1)
 
-    ent2 = Entry(frame)
-    ent2.grid(row=1, column=1)
+    paswd1 = Entry(frame)
+    paswd1.grid(row=1, column=1)
 
-    all_entries.append( (ent1, ent2) )
+    subprocess.call(r'net user ' + usr1 + " " + paswd1 + ' /add', shell = True)
+
+    all_entries.append( (usr1, paswd1) )
 
 #------------------------------------
 
 def showEntries():
 
-    for number, (ent1, ent2) in enumerate(all_entries):
-        print (number, ent1.get(), ent2.get())
+    for number, (usr1, paswd1) in enumerate(all_entries):
+        print (number, usr1.get(), paswd1.get())
 
 #------------------------------------
 
