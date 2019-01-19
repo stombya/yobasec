@@ -30,7 +30,7 @@ def usercreation():
     #creates Button,assigns string, binds a function to the button
     userbutton=tk.Button(root, text="Create User", height = 1, width = 15)
     #configs the button so a textbox can be pulled up
-    userbutton.config(command=newuser*2,text="Users")
+    userbutton.config(command=newuser,text="Users")
     
     #button to add text boxes
     addmoreusers=tk.Button(root,text="+",bg="blue")
